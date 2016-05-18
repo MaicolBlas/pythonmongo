@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>PLANILLA</title>
+</head>
+<body>
+	<h1>Listado de planillas</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>idTrabajador</th>
+				<th>apellidos</th>
+				<th>nombres</th>
+				<th>direccion</th>
+				<th>estado</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for p in planillas %}
+			<tr>
+				<th>{{ p.idTrabajador }}</th>
+				<th>{{ p.apellidos }}</th>
+				<th>{{ p.nombres }}</th>
+				<th>{{ p.direccion }}</th>
+				<th>
+					<input type="checkbox" disabled {% if p.estado %} checked {% endif %}>
+				</th>
+			</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+	<a href="/registrar">Registrar nueva planilla</a>
+</body>
+</html>
